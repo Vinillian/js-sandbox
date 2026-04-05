@@ -1,12 +1,12 @@
 function calculator(arg1, arg2, operator) {
     
-    if (typeof arg1 !== 'number' || typeof arg2 !== 'number') {
-        throw new Error('Both arguments must be numbers');
+    if (typeof arg1 != 'number' || typeof arg2 != 'number') {
+        return 'Error: enter a number';
     }
-    
+        
     let result;
     
-    switch(operator) {
+    switch(operator){
         case '+':
             result = arg1 + arg2;
             break;
@@ -18,29 +18,25 @@ function calculator(arg1, arg2, operator) {
             break;
         case '/':
             if (arg2 === 0) {
-                throw new Error('Division by zero');
+                return 'Error: division by zero';
             }
             result = arg1 / arg2;
             break;
         case '%':
             if (arg2 === 0) {
-                throw new Error('Modulo by zero');
+                return 'Error: modulo by zero';
             }
             result = arg1 % arg2;
             break;
         default:
-            throw new Error(`Unknown operator: ${operator}`);
+           return `Error: unknown operator "${operator}"`;
     }
-    
+
     return result;
 }
 
-const x = 4;
-const y = 3;
+let x = +prompt("Enter first number:");
+let y = +prompt("Enter second number:");
+let operator = prompt("Enter operator:");
 
-console.log(calculator(x, y, '+'));
-console.log(calculator(x, y, '-'));
-console.log(calculator(x, y, '*'));
-console.log(calculator(x, y, '/'));
-console.log(calculator(x, y, '%'));
-
+alert(calculator(x, y, operator));
