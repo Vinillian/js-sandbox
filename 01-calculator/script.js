@@ -1,7 +1,10 @@
-function calculator(arg1, arg2, operator) {
+function calculator(a, b, operator) {
     
-    if (typeof arg1 != 'number' || typeof arg2 != 'number') {
-        return 'Error: enter a number';
+        const arg1 = Number(a);
+        const arg2 = Number(b);
+
+        if (isNaN(arg1) || isNaN(arg2)) {
+    return 'Error: enter a number';
     }
         
     let result;
@@ -33,10 +36,24 @@ function calculator(arg1, arg2, operator) {
     }
 
     return result;
+        
 }
 
-let x = +prompt("Enter first number:");
-let y = +prompt("Enter second number:");
-let operator = prompt("Enter operator:");
+while (true) {
+    let x = prompt("Enter first number:");
+    if (x === null) break;
+    
 
-alert(calculator(x, y, operator));
+    let y = prompt("Enter second number:");
+    if (y === null) break;
+        
+    
+    let operator = prompt("Enter operator:");
+    if (operator === null) break;
+
+    let result = calculator(x, y, operator);
+    alert("Result: " + result);
+}
+
+
+alert("Calculator stopped.");
