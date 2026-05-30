@@ -1,9 +1,14 @@
-function summaring(a, b) {
-    return a + b;
-}
+function calculate(operation) {
+    const val1 = parseFloat(input1.value);
+    const val2 = parseFloat(input2.value);
+    let result;
+    switch(operation) {
+        case 'sum': result = val1 + val2; break;
+        case 'min': result = val1 - val2; break;
+        default: result = 'error';
+    }
 
-function minusing(a, b) {
-    return a - b;
+    return result;
 }
 
 const input1 = document.getElementById('num1');
@@ -13,13 +18,9 @@ const buttonMin = document.getElementById('minBtn');
 const resultSpan = document.getElementById('result');
 
 buttonSum.onclick = function() {
-    const val1 = parseFloat(input1.value);
-    const val2 = parseFloat(input2.value);
-    resultSpan.textContent = summaring(val1, val2);
+    resultSpan.textContent = calculate('sum');;
 }
 
-buttonMin.onclick = function() {
-    const val1 = parseFloat(input1.value);
-    const val2 = parseFloat(input2.value);
-    resultSpan.textContent = minusing(val1, val2);
+buttonMin.onclick = function() {    
+    resultSpan.textContent = calculate('min');;
 }
