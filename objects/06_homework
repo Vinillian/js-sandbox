@@ -1,0 +1,45 @@
+const user = {};
+
+user.name = 'John';
+user.surname = 'Smith';
+user.name = 'Pete';
+
+delete user.name;
+
+
+// Проверка наличия свойств в объекте
+let shedule = {};
+
+function isEmpty(obj) {    
+    for (key in obj) {       
+        return false;
+    }
+    return true;
+}
+
+
+let schedule = {};
+
+console.log( isEmpty(schedule) ); // true
+
+schedule["8:30"] = "get up";
+
+console.log( isEmpty(schedule) ); // false
+
+//Сумма свойств объекта
+
+let salaries = {
+  John: 100,
+  Ann: 160,
+  Pete: 130
+}
+
+function summaring(obj) {
+    let sum = 0;
+    for (let key in obj) {
+        sum += obj[key]
+    }
+    return sum;
+}
+
+console.log(summaring(salaries));
